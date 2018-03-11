@@ -1,6 +1,7 @@
 package com.sentriot.proto;
 
 import java.io.File;
+import java.net.URI;
 import java.nio.file.*;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -14,11 +15,17 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class WebdavApplication {
 
-    @Value("${document.root}")
+
+	@Value("${document.root}")
     private String documentRoot;
 
+	static String uri;
     public static void main(final String[] args)
     {
+    	String property = System.getProperty("webdav.root");
+    	System.out.println("SRIDHAR WebdavApplication.main() property = " + property);
+		uri = Paths.get("",new String[]{ property}).toAbsolutePath().toString();
+    	System.out.println("SRIDHAR WebdavApplication.main() path = " + uri);
         SpringApplication.run(WebdavApplication.class, args);
     }
 
@@ -26,7 +33,9 @@ public class WebdavApplication {
     public EmbeddedServletContainerFactory servletContainer()
     {
         final TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
-        factory.setDocumentRoot(Paths.get(System.getProperty("user.home") + "").toFile());
+		File file = Paths.get("",new String[]{uri}).toFile();
+        System.out.println("SRIDHAR WebdavApplication.servletContainer() docroot = " + file.getAbsolutePath());
+		factory.setDocumentRoot(file);
         return factory;
     }
 

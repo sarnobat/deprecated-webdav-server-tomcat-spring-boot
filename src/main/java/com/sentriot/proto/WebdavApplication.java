@@ -26,7 +26,7 @@ public class WebdavApplication {
     public EmbeddedServletContainerFactory servletContainer()
     {
         final TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
-        factory.setDocumentRoot(Paths.get(System.getProperty("user.home") + "/www/webdav/").toFile());
+        factory.setDocumentRoot(Paths.get(System.getProperty("user.home") + "").toFile());
         return factory;
     }
 

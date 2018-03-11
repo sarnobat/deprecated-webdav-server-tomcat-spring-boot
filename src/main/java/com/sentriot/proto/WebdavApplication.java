@@ -1,6 +1,7 @@
 package com.sentriot.proto;
 
 import java.io.File;
+import java.nio.file.*;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -25,7 +26,7 @@ public class WebdavApplication {
     public EmbeddedServletContainerFactory servletContainer()
     {
         final TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
-        factory.setDocumentRoot(new File(documentRoot));
+        factory.setDocumentRoot(Paths.get(System.getProperty("user.home") + "/www/webdav/").toFile());
         return factory;
     }
 

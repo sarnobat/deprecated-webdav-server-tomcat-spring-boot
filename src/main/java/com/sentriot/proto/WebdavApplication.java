@@ -22,7 +22,7 @@ public class WebdavApplication {
 	static String uri;
     public static void main(final String[] args)
     {
-    	String property = System.getProperty("webdav.root");
+    	String property = System.getProperty("webdav.root", System.getProperty("user.home"));
     	System.out.println("SRIDHAR WebdavApplication.main() property = " + property);
 		uri = Paths.get("",new String[]{ property}).toAbsolutePath().toString();
     	System.out.println("SRIDHAR WebdavApplication.main() path = " + uri);

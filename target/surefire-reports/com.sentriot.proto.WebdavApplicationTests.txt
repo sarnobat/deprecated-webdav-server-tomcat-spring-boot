@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.sentriot.proto.WebdavApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.265 sec - in com.sentriot.proto.WebdavApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.834 sec - in com.sentriot.proto.WebdavApplicationTests

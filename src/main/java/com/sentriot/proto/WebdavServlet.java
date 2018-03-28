@@ -485,7 +485,7 @@ public class WebdavServlet extends DefaultServlet {
                 }
 
                 boolean usingGzippedVersion = false;
-                if(!included && resource.isFile() && !path.endsWith(".gz")) {
+                if(this.gzip && !included && resource.isFile() && !path.endsWith(".gz")) {
                     WebResource ranges = this.resources.getResource(path + ".gz");
                     if(ranges.exists() && ranges.isFile()) {
                         Collection contentLength = response.getHeaders("Vary");
